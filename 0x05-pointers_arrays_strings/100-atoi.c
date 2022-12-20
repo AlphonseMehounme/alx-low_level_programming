@@ -6,13 +6,13 @@
  * Return: first integer found in string
  */
 
-int _atoi(char *)
+int _atoi(char *s)
 {
 	int i;
 	int j, k;
 
 	j = 0;
-	k= = -1;
+	k = -1;
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] == '-')
@@ -32,5 +32,5 @@ int _atoi(char *)
 	if (k < 0)
 		j *= -1;
 
-	return (j)
+	return (j);
 }
