@@ -3,7 +3,7 @@
 /**
  * _strcat - Concatenates two strings
  * @dest: String type input
- * @scr: String type input
+ * @src: String type input
  * Return: Pointer to the result
  */
 
