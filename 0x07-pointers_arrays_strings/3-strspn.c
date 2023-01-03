@@ -25,6 +25,7 @@ unsigned int _strspn(char *s, char *accept)
 			}
 			accept++;
 		}
+
 		s++;
 		accept = toaccept;
 		if (flag == 0)
