@@ -17,7 +17,7 @@ int main(void)
 		j = k;
 		k = l;
 	}
-	print("\n");
+	printf("\n");
 	return (0);
 
 }
