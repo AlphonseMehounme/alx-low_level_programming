@@ -7,7 +7,7 @@
 void print_number(int n)
 {
 	int count, pow, lastdigit, m;
-	
+
 	if (n < 0)
 	{
 		n = -n;
