@@ -22,25 +22,15 @@ int _strcmp(char *s1, char *s2)
 	}
 	for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
 	{
-		if (s1[i] > s2[i])
+		n = s1[i] - s2[i];
+		if (n != 0)
 		{
-			n = 15;
-			break;
-		} else if (s1[i] < s2[i])
-		{
-			n = -15;
 			break;
 		}
 	}
 	if (n == 0)
 	{
-		if (len1 > len2)
-		{
-			n = 15;
-		} else if (len1 < len2)
-		{
-			n = -15;
-		}
+		n = s1[i] - s2[i];
 	}
 	return (n);
 }
