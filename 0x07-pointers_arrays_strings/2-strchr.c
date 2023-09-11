@@ -1,5 +1,3 @@
-#include <stddef.h>
-
 /**
  * _strchr - Locates a character in a string
  * @s: Pointer to the string to search in
@@ -10,7 +8,7 @@
 char *_strchr(char *s, char c)
 {
 	int i, count = 0;
-	char *p = NULL;
+	char *p = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -22,7 +20,7 @@ char *_strchr(char *s, char c)
 	}
 	if (!count)
 	{
-		return p;
+		return (p);
 	}
 	return (s + i);
 }
