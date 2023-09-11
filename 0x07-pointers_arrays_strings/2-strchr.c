@@ -14,13 +14,8 @@ char *_strchr(char *s, char c)
 	{
 		if (s[i] == c)
 		{
-			count++;
-			break;
+			return (s + i);
 		}
 	}
-	if (!count)
-	{
-		return (p);
-	}
-	return (s + i);
+	return (p);
 }
