@@ -21,14 +21,18 @@ list_t *add_node(list_t **head, const char *str)
 		return (new);
 	}
 	new->str = strdup(str);
+	if (new->str == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
 	while (*str != '\0')
 	{
 		len++;
+		str++;
 	}
 	new->len = len;
 	new->next = *head;
 	*head = new;
-	free(new->str);
-	free(new);
-	return (*head);
+	return (new);
 }
