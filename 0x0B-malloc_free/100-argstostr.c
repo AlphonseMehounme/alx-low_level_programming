@@ -7,13 +7,14 @@
  * @ac: Number of args
  * @av: Pointer ot program args
  *
- * Pointer to a new string or NULL if failed, ac = 0 or av = NULL
+ * Return: Pointer to a new string if successful
+ * NULL if failed, ac = 0 or av = NULL
  */
 char *argstostr(int ac, char **av)
 {
 	char *str;
 	int count = 0;
-	int i, j , k, l = 0;
+	int i, j, k, l = 0;
 
 	if (ac == 0 || av == NULL)
 	{
@@ -23,7 +24,7 @@ char *argstostr(int ac, char **av)
 	{
 		count += strlen(av[i]);
 	}
-	str = malloc(sizeof(char) * (count + ac));
+	str = malloc(sizeof(char) * (count + ac + 1));
 	if (str == NULL)
 	{
 		return (str);
