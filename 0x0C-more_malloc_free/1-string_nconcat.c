@@ -35,11 +35,19 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	for (i = 0; i < strlen(s1); i++)
 	{
+		if (s1 == NULL)
+		{
+			break;
+		}
 		s[i] = s1[i];
 	}
 	j = 0;
 	for (; i < strlen(s1) + n; i++)
 	{
+		if (s2 == NULL)
+		{
+			break;
+		}
 		s[i] = s2[j];
 		j++;
 	}
