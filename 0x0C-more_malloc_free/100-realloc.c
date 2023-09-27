@@ -2,6 +2,13 @@
 #include "main.h"
 #include <stdlib.h>
 
+/**
+ * _realloc - Reallocate memory
+ * @ptr: Old memory
+ * @old_size: Old size
+ * @new_size: New size
+ * Return: Ptr with the new size or NULL
+ */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	unsigned int i, min = old_size;
@@ -21,10 +28,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	} else
 	{
 		p = malloc(new_size);
-		if (p == NULL)
-		{
-			return (NULL);
-		} else
+		if (p != NULL)
 		{
 			if (new_size < old_size)
 			{
@@ -37,5 +41,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 			free(ptr);
 			return (p);
 		}
+		return (NULL);
 	}
 }
