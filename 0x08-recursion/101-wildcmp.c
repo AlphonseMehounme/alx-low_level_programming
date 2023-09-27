@@ -12,7 +12,7 @@ int wildcmp(char *s1, char *s2)
 	{
 		return (1);
 	}
-	if (*s2 == '*' && *(s2 + 1) == '*')
+	while (*s2 == '*' && *(s2 + 1) == '*')
 	{
 		s2++;
 	}
