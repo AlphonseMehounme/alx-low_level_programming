@@ -2,6 +2,10 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 
+/**
+ * print_all - Print anything
+ * @format: List of types of args
+ */
 void print_all(const char * const format, ...)
 {
 	va_list args;
@@ -11,7 +15,7 @@ void print_all(const char * const format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		while(*speclist)
+		while (*speclist)
 		{
 			if (format[i] == *speclist)
 			{
