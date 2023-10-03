@@ -14,14 +14,14 @@ size_t read_textfile(const char *filename, size_t letters)
 {
 	size_t wr;
 	int op, rd;
-	char *c = malloc(letters + 1);
+	char *c = malloc(letters);
 
 	if (filename == NULL)
 	{
 		return (0);
 	}
 	op = open(filename, O_RDONLY);
-	if (op < 0)
+	if (op == -1)
 	{
 		return (0);
 	}
@@ -30,12 +30,12 @@ size_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	rd = read(op, c, letters);
-	if (rd < 0)
+	if (rd == -1)
 	{
 		return (0);
 	}
 	wr = write(STDOUT_FILENO, c, letters);
-	if (wr <= 0 || wr < letters)
+	if (wr <= 0)
 	{
 		return (0);
 	}
