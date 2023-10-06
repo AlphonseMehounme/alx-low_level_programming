@@ -22,7 +22,7 @@ int create_file(const char *filename, char *text_content)
 	{
 		return (-1);
 	}
-	op = open(filename, O_RDWR);
+	op = open(filename, O_RDWR | O_CREAT | O_EXCL);
 	if (op == -1)
 	{
 		return (-1);
@@ -32,7 +32,7 @@ int create_file(const char *filename, char *text_content)
 		wr = write(op, text_content, strlen(text_content));
 	} else
 	{
-		wr = write(op, "", 1);
+		wr = write(op, "", 0);
 	}
 	if (wr == -1)
 	{
