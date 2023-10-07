@@ -11,18 +11,13 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int cr, op, wr;
+	int op, wr, size;
 
 	if (filename == NULL)
 	{
 		return (-1);
 	}
-	cr = creat(filename, O_RDWR | O_CREAT | O_EXCL);
-	if (cr == -1)
-	{
-		return (-1);
-	}
-	op = open(filename, O_RDWR | O_CREAT | O_EXCL);
+	op = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
 	if (op == -1)
 	{
 		return (-1);
@@ -31,7 +26,8 @@ int create_file(const char *filename, char *text_content)
 	{
 		wr = write(op, text_content, strlen(text_content));
 	}
-	if (wr == -1)
+	size = strlen(text_content);
+	if (wr == -1 || wr != size)
 	{
 		close(op);
 		return (-1);
