@@ -1,0 +1,4 @@
+#!/bin/sh
+max=/proc/sys/kernel/pid_max
+cat $max
+cat $PID_MAX
