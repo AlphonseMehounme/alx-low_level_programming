@@ -3,17 +3,16 @@
 int main(){
    char ch;
    FILE *fp;
-   fp=fopen("std1.txt","w"); //open the file in write mode
+   fp=fopen("std1.txt","w");
    printf("enter the text then press cntrl Z:");
-   while((ch = getchar())!=EOF) //reading char by char until it equals to EOF{
-      //i.e. when u press ctrlZ the while loop terminates
+   while((ch = getchar())!='\n')
    {
 	   putc(ch,fp);
    }
    fclose(fp);
    fp=fopen("std1.txt","r");
    printf("text on the file:");
-   while ((ch=getc(fp))!=EOF) //reading the character from file until fp equals to EOF{
+   while ((ch=getc(fp))!=EOF)
    {
 	   putchar(ch);
    }
