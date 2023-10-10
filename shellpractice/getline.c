@@ -15,7 +15,7 @@ int main() {
     ssize_t read;
     char **words;
     char *env[] = {NULL};
-    char *wordss[] = {"/bin/ls", "-l", "/usr/", NULL};
+    /*char *wordss[] = {"/bin/ls", "-l", "/usr/", NULL};*/
 
     printf("$ ");
     read = getline(&line, &len, stdin);
@@ -23,7 +23,12 @@ int main() {
     {
         printf("%s", line);
 	words = strtab(line);
-
+	printf("%s\n", words[0]);
+	while (*words != NULL)
+	{
+		printf("%s ", *words);
+		words++;
+	}
 	if (execve(words[0], words, env) == -1)
 	{
 		exit(EXIT_FAILURE);
