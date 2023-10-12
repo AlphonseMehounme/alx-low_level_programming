@@ -10,12 +10,13 @@
  * Return: Always 0
  */
 int main() {
+    int i = 0;
     char *line = NULL;
     size_t len = 0;
     ssize_t read;
     char **words;
     char *env[] = {NULL};
-    /*char *wordss[] = {"/bin/ls", "-l", "/usr/", NULL};*/
+    char *wordss[] = {"/bin/ls", "-l", "/usr/", NULL};
 
     printf("$ ");
     read = getline(&line, &len, stdin);
@@ -23,11 +24,15 @@ int main() {
     {
         printf("%s", line);
 	words = strtab(line);
-	printf("%s\n", words[0]);
-	while (*words != NULL)
+	for (i = 0; i < 4; i++)
 	{
-		printf("%s ", *words);
-		words++;
+		if (words[i] == NULL)
+		{
+			printf("(null0)\n");
+		} else
+		{
+			printf("%s\n", words[i]);
+		}
 	}
 	if (execve(words[0], words, env) == -1)
 	{

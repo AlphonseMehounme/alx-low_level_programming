@@ -47,11 +47,11 @@ char **strtab(char *str)
     }
 
     // Don't forget to terminate the array with a NULL pointer
-    astr = (char **)realloc(astr, (i + 1) * sizeof(char *));
-    if (astr == NULL)
-    {
-        return NULL;
-    }
+//    astr = (char **)realloc(astr, (i + 1) * sizeof(char *));
+  //  if (astr == NULL)
+   // {
+     //   return NULL;
+   // }
     astr[i] = NULL;
 
     return astr;
