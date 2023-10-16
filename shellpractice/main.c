@@ -4,9 +4,13 @@
 #include <unistd.h>
 #include "main.h"
 
+/**
+ * main - Simple shell
+ *
+ * Return: Always 0
+ */
 int main() {
-    int status;
-    int i;
+    int status, i;
     char input[MAX_COMMAND_LENGTH];
     pid_t child_pid;
     char** commands;
