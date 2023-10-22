@@ -16,28 +16,22 @@ int main() {
     ssize_t read;
     char **words;
     char *env[] = {NULL};
-    char *wordss[] = {"/bin/ls", "-l", "/usr/", NULL};
+    pid_t PID;
+    int status;
 
     printf("$ ");
     read = getline(&line, &len, stdin);
     while (read != -1)
     {
-        printf("%s", line);
-	words = strtab(line);
-	for (i = 0; i < 4; i++)
-	{
-		if (words[i] == NULL)
-		{
-			printf("(null0)\n");
-		} else
-		{
-			printf("%s\n", words[i]);
-		}
-	}
-	if (execve(words[0], words, env) == -1)
-	{
-		exit(EXIT_FAILURE);
-	}
+	    PID = fork();
+	    if (PID == 0)
+	    {
+		    if (execve(words[0], words, env) == -1)
+		    {
+			    exit(EXIT_FAILURE);
+		    }
+	    } else
+		    wait(&status);
 	free(line);
         line = NULL;
         len = 0;
